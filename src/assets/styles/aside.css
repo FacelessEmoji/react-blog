@@ -1,0 +1,114 @@
+@import 'variables.css';
+@import "index.css";
+
+.aside {
+    min-height: 80%;
+    height: 800px;
+    min-width: 30%;
+
+    border-color: var(--border-color);
+    border-style: dashed;
+    border-radius: 0.7rem;
+    border-width: 0.2rem;
+
+    box-shadow: var(--box-shadow);
+
+}
+
+.aside-title {
+    margin: 5% 0 0 5%;
+}
+
+
+/*-----------Формочка-----------*/
+.post-form {
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 5% 5% 0 5%;
+}
+
+/*---Автор---*/
+.author-input {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 1.5rem 0;
+}
+
+.author-input input {
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    padding: 0 0 0.2rem 1rem;
+}
+
+.author-input label {
+    margin: 0 0 0.5rem 0;
+}
+
+/*---Заголовок---*/
+.title-input {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 1.5rem 0;
+}
+
+.title-input input {
+    font-size: 1.2rem;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 0.3rem;
+    padding: 0.2rem 0 0.2rem 1rem;
+}
+
+.title-input label {
+    margin: 0 0 0.5rem 0;
+}
+
+/*---Категория---*/
+.category-input {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 1.5rem 0;
+}
+
+.category-input input {
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    padding: 0 0 0.2rem 1rem;
+}
+
+.category-input label {
+    margin: 0 0 0.5rem 0;
+}
+
+/*---Содержание---*/
+.content-input {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 1.5rem 0;
+}
+
+.content-input textarea {
+    width: 100%;
+    height: 100px;
+    min-height: 20%;
+
+    font-size: 1.2rem;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 0.3rem;
+    padding: 0.2rem 0 0.2rem 1rem;
+}
+
+.content-input label {
+    margin: 0 0 0.5rem 0;
+}
+
+
+/*-----------Конец формочки-----------*/
+.aside-archive-title {
+    margin: 5% 0 0 5%;
+}

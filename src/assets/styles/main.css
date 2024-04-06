@@ -1,0 +1,19 @@
+@import 'variables.css';
+@import "index.css";
+
+.main{
+    min-height: 80%;
+    height: 800px;
+    min-width: 60%;
+
+    border-color: var(--border-color);
+    border-style: dashed;
+    border-radius: 0.7rem;
+    border-width: 0.2rem;
+
+    box-shadow: var(--box-shadow);
+}
+
+.main-title{
+    margin: 2.5% 0 0 5%;
+}
