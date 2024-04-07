@@ -124,3 +124,19 @@
 .aside-archive-title {
     margin: 5% 0 0 5%;
 }
+
+/*TODO: Сделать что-нибудь с архивом*/
+
+.aside-articles-container{
+
+}
+
+ol{
+    list-style-type: square;
+}
+
+li {
+
+}
+
+

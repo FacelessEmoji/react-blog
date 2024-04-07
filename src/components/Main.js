@@ -5,6 +5,8 @@ import '../assets/styles/index.css';
 const Main = () => {
     const articles = [
         {
+            id: 1,
+            is_archived: false,
             title: 'Марк Цукерберг продемонстрировал работу VR-гарнитуры Project\n' +
                 'Cambria',
             category: 'Технологии',
@@ -14,6 +16,8 @@ const Main = () => {
                 'этапе разработки устройство носит название Project Cambria, а его выход может состояться\n' +
                 'уже в этом году.' },
         {
+            id: 2,
+            is_archived: false,
             title: 'Вторая статья',
             category: 'Технологии',
             author: 'Петр Петров',
