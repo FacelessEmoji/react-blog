@@ -24,6 +24,9 @@ const Aside = () => {
                 <label htmlFor="content">Содержание</label>
                 <textarea id="content" name="content" />
             </div>
+            <button className="create-button" onClick={handleForm}>
+                Создать
+            </button>
         </form>
 
         <h2 className="aside-archive-title">Архив</h2>
@@ -32,4 +35,7 @@ const Aside = () => {
   );
 };
 
+
+function handleForm() {
+}
 export default Aside;
