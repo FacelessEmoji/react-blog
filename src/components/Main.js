@@ -1,45 +1,32 @@
 import React from "react";
 import Article from "../elements/Article";
 import '../assets/styles/main.css';
-import '../assets/styles/index.css';
-const Main = () => {
-    const articles = [
-        {
-            id: 1,
-            is_archived: false,
-            title: 'Марк Цукерберг продемонстрировал работу VR-гарнитуры Project\n' +
-                'Cambria',
-            category: 'Технологии',
-            author: 'Иван Иванов',
-            content: 'Глава Meta Марк Цукерберг опубликовал в видео работы VR-гарнитуры нового\n' +
-                'поколения, поддерживающей приложения виртуальной и дополненной реальности. На\n' +
-                'этапе разработки устройство носит название Project Cambria, а его выход может состояться\n' +
-                'уже в этом году.' },
-        {
-            id: 2,
-            is_archived: false,
-            title: 'Вторая статья',
-            category: 'Технологии',
-            author: 'Петр Петров',
-            content: 'Содержание второй статьи' },
-    ];
 
-  return (
-      <main className="main">
-          <h2 className="main-title">Записи</h2>
-          <hr className="line"/>
-          <div className="articles-container">
-              {articles.map(article => (
-                  <Article
-                      title={article.title}
-                      category={article.category}
-                      author={article.author}
-                      content={article.content}
-                  />
-              ))}
-          </div>
-      </main>
-  );
+const Main = ({ articles, handleDelete, handleArchive }) => {
+    return (
+        <main className="main">
+            <h2 className="main-title">Записи</h2>
+            <hr className="line"/>
+            <div className="articles-container">
+                {articles
+                    .filter(article => !article.is_archived)
+                    .map(article => (
+                    <Article
+                        key={article.id}
+
+                        id={article.id}
+                        title={article.title}
+                        category={article.category}
+                        author={article.author}
+                        content={article.content}
+
+                        onDelete={handleDelete} // Передаем функцию удаления
+                        onArchive={handleArchive} // Передаем функцию архивирования
+                    />
+                ))}
+            </div>
+        </main>
+    );
 };
 
 export default Main;

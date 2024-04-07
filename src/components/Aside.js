@@ -1,54 +1,84 @@
-import React from "react";
+import React, {useState} from "react";
 import '../assets/styles/aside.css';
-import '../assets/styles/index.css';
 
-const Aside = () => {
-    const articles = [
-        {
-            id: 1,
-            is_archived: true,
-            title: 'Марк Цукерберг продемонстрировал работу VR-гарнитуры Project\n' +
-                'Cambria',
-            category: 'Технологии',
-            author: 'Иван Иванов',
-            content: 'Глава Meta Марк Цукерберг опубликовал в видео работы VR-гарнитуры нового\n' +
-                'поколения, поддерживающей приложения виртуальной и дополненной реальности. На\n' +
-                'этапе разработки устройство носит название Project Cambria, а его выход может состояться\n' +
-                'уже в этом году.'
-        },
-        {
-            id: 2,
-            is_archived: true,
-            title: 'Вторая статья',
-            category: 'Технологии',
-            author: 'Петр Петров',
-            content: 'Содержание второй статьи'
-        },
-    ];
+const Aside = ({ addNewArticle, articles }) => {
+    const [formData, setFormData] = useState({
+        author: "",
+        title: "",
+        category: "",
+        content: ""
+    });
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            [name]: value
+        }));
+    };
+
+    const handleForm = (event) => {
+        event.preventDefault();
+        const newArticle = {
+            id: Date.now(),
+            is_archived: false,
+            ...formData
+        };
+        addNewArticle(newArticle);
+        setFormData({
+            author: "",
+            title: "",
+            category: "",
+            content: ""
+        });
+    };
 
     return (
         <aside className="aside">
             <h2 className="aside-title">Создать запись</h2>
             <hr className="line"/>
 
-            <form className="post-form">
+            <form className="post-form" onSubmit={handleForm}>
                 <div className="author-input">
                     <label htmlFor="author">Автор</label>
-                    <input type="text" id="author" name="author"/>
+                    <input
+                        type="text"
+                        id="author"
+                        name="author"
+                        value={formData.author}
+                        onChange={handleChange}
+                    />
                 </div>
                 <div className="title-input">
                     <label htmlFor="title">Заголовок</label>
-                    <input type="text" id="title" name="title"/>
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        value={formData.title}
+                        onChange={handleChange}
+                    />
                 </div>
                 <div className="category-input">
                     <label htmlFor="category">Категория</label>
-                    <input type="text" id="category" name="category"/>
+                    <input
+                        type="text"
+                        id="category"
+                        name="category"
+                        value={formData.category}
+                        onChange={handleChange}
+                    />
                 </div>
                 <div className="content-input">
                     <label htmlFor="content">Содержание</label>
-                    <textarea id="content" name="content"/>
+                    <textarea
+                        id="content"
+                        name="content"
+                        value={formData.content}
+                        onChange={handleChange}
+                    />
                 </div>
-                <button className="create-button" onClick={handleForm}>
+                <button type="submit" className="create-button">
                     Создать
                 </button>
             </form>
@@ -57,17 +87,17 @@ const Aside = () => {
             <hr className="line"/>
             <div className="aside-articles-container">
                 <ol>
-                    {articles.map(article => (
-                        <li key={article.id}>{article.title}</li>
+                    {articles
+                        .filter(article => article.is_archived)
+                        .map(article => (
+                        <li key={article.id}>
+                            {article.title}
+                        </li>
                     ))}
                 </ol>
             </div>
         </aside>
     );
 };
-
-
-function handleForm() {
-}
 
 export default Aside;

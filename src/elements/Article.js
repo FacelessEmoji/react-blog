@@ -1,7 +1,15 @@
 import React from 'react';
 import '../assets/styles/article.css';
 
-const Article = ({ title, category, author, content}) => {
+const Article = ({ id, title, category, author, content, onDelete, onArchive }) => {
+    const handleDelete = () => {
+        onDelete(id);
+    };
+
+    const handleArchive = () => {
+        onArchive(id);
+    };
+
     return (
         <article className="article_container">
             <h1 className="article-title">{title}</h1>
@@ -19,10 +27,5 @@ const Article = ({ title, category, author, content}) => {
         </article>
     );
 };
-
-function handleDelete() {
-}
-function handleArchive() {
-}
 
 export default Article;
