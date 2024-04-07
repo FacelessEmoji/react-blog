@@ -4,7 +4,9 @@
 .main{
     min-height: 80%;
     height: 650px;
-    min-width: 65%;
+    max-width: 80%;
+    min-width: 60%;
+    width: 70%;
 
     border: dashed 0.1rem var(--border-color);
     border-radius: 15px;
@@ -16,4 +18,12 @@
 
 .main-title{
     margin: 2.5% 0 0 5%;
+}
+
+.articles-container{
+    width: 90%;
+    margin:0 5% 5% 5%;
+
+    display: flex;
+    flex-direction: column;
 }
